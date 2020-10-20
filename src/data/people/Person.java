@@ -1,15 +1,19 @@
 package data.people;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  * A class defining the Person object.
  */
-public class Person {
+public class Person implements Comparable<Person> {
 
     /** Person's name attribute. */
-    public String mName;
+    private String mName;
 
     /** Person's age attribute. */
-    public int age;
+    private int mAge;
 
     /**
      * Person constructor.
@@ -18,9 +22,12 @@ public class Person {
      */
     public Person(String name, int age) {
         mName = name;
-        age = age;
+        mAge = age;
     }
 
+    /**
+     * Empty Person constructor.
+     */
     public Person() {
 
     }
@@ -29,9 +36,47 @@ public class Person {
     public void printPersonInfo() {
         System.out.print(mName);
         System.out.print(" (");
-        System.out.print(age);
+        System.out.print(mAge);
         System.out.print(") ");
 
+    }
+
+    /** Default comparator. Sorts by name. */
+    public int compareTo(Person that) {
+        return this.getName().compareTo(that.getName());
+    }
+
+    /** Additional comparator. Sorts by age in descending order. */
+    public static class ByAge implements Comparator<Person> {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            if (p1.getAge() < p2.getAge()) return -1;
+            if (p1.getAge() > p2.getAge()) return +1;
+            return 0;
+        }
+    }
+
+    /** Getters and Setters */
+
+    /** Gets name. */
+    public String getName() {
+        return mName;
+    }
+
+    /** Sets name. */
+    public void setName(String mName) {
+        this.mName = mName;
+    }
+
+    /** Gets age. */
+    public int getAge() {
+        return mAge;
+    }
+
+    /** Sets age. */
+    public void setAge(int age) {
+        this.mAge = age;
     }
 
     public static void main(String[] args) {
@@ -40,9 +85,34 @@ public class Person {
         Person p2 = new Person("Jill", 17);
         Person p3 = new Person("Anthony", 23);
 
-        p1.printPersonInfo();
-        p2.printPersonInfo();
-        p3.printPersonInfo();
+        //p1.printPersonInfo();
+        //p2.printPersonInfo();
+        //p3.printPersonInfo();
+
+        ArrayList<Person> people = new ArrayList<Person>();
+
+        people.add(p1);
+        people.add(p2);
+        people.add(p3);
+
+        for (Person p : people) {
+            p.printPersonInfo();
+        }
+        System.out.println();
+
+        Collections.sort(people);
+
+        for (Person p : people) {
+            p.printPersonInfo();
+        }
+        System.out.println();
+
+        Collections.sort(people, new ByAge());
+
+        for (Person p : people) {
+            p.printPersonInfo();
+        }
+        System.out.println();
 
     }
 }
