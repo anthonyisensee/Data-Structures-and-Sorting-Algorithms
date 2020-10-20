@@ -6,24 +6,28 @@ package data.people;
 public class Person {
 
     /** Person's name attribute. */
-    public String name;
+    public String mName;
 
     /** Person's age attribute. */
     public int age;
 
     /**
      * Person constructor.
-     * @param n The name of the Person.
-     * @param a The age of the Person.
+     * @param name The name of the Person.
+     * @param age The age of the Person.
      */
-    public Person(String n, int a) {
-        name = n;
-        age = a;
+    public Person(String name, int age) {
+        mName = name;
+        age = age;
+    }
+
+    public Person() {
+
     }
 
     /** Print person information in a single string. */
     public void printPersonInfo() {
-        System.out.print(name);
+        System.out.print(mName);
         System.out.print(" (");
         System.out.print(age);
         System.out.print(") ");
