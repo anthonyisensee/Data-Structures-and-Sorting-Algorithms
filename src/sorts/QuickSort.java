@@ -16,6 +16,8 @@ public class QuickSort {
      * Note that this is an unstable sort. Sorting [... x.1, x.2, ...] (if x.1=x.2) could lead to an array where x.2
      * comes before x.1.
      *
+     * Excellent Quicksort Example: https://www.youtube.com/watch?v=mB5HXBb_HY8
+     *
      * @param numberArray Array of numbers to be sorted.
      */
     public void sort(int numberArray[]) {
@@ -54,9 +56,11 @@ public class QuickSort {
     }
 
     /**
-     * @param numberArray
-     * @param left
-     * @param right
+     * The recursive function that quick sorts the array.
+     *
+     * @param numberArray The array to be sorted.
+     * @param left The first position to sort from.
+     * @param right The last position to sort to.
      * @return The index of the placed pivot item.
      */
     private int partition(int numberArray[], int left, int right) {
