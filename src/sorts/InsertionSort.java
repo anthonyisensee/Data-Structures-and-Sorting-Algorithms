@@ -6,6 +6,10 @@ public class InsertionSort {
      * Function to sort an array of numbers using insertion sort.
      * Worst case is O(n^2), a backwards array.
      * Best case is O(n), an already sorted array.
+     *
+     * This sort is fantastic for sorting large amounts of data
+     * that is already mostly sorted.
+     *
      * @param numberArray An array of numbers.
      */
     void sort(int numberArray[]) {
