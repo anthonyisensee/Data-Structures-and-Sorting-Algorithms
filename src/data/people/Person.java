@@ -38,7 +38,6 @@ public class Person implements Comparable<Person> {
         System.out.print(" (");
         System.out.print(mAge);
         System.out.print(") ");
-
     }
 
     /** Default comparator. Sorts by name. */
